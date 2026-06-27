@@ -4,6 +4,7 @@ const helmet = require('helmet');
 const morgan = require('morgan');
 
 const authRoutes = require('./routes/authRoutes');
+const userRoutes = require('./routes/userRoutes');
 const { notFound, errorHandler } = require('./middleware/errorMiddleware');
 
 const app = express();
@@ -38,7 +39,8 @@ app.get('/api/health', (req, res) => {
 
 // Routes
 app.use('/api/auth', authRoutes);
-// More routes (users, tasks, categories, notifications) will be added in later phases
+app.use('/api/users', userRoutes);
+// More routes (tasks, categories, notifications) will be added in later phases
 
 // 404 + error handling — must be last
 app.use(notFound);
