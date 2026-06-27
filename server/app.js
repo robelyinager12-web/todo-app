@@ -6,6 +6,7 @@ const morgan = require('morgan');
 const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
 const categoryRoutes = require('./routes/categoryRoutes');
+const taskRoutes = require('./routes/taskRoutes');
 const { notFound, errorHandler } = require('./middleware/errorMiddleware');
 
 const app = express();
@@ -36,7 +37,8 @@ app.get('/api/health', (req, res) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/categories', categoryRoutes);
-// More routes (tasks, notifications) will be added in later phases
+app.use('/api/tasks', taskRoutes);
+// More routes (notifications) will be added in later phases
 
 app.use(notFound);
 app.use(errorHandler);
