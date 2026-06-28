@@ -39,16 +39,16 @@ describe('TaskForm', () => {
     await user.type(screen.getByLabelText(/task title/i), 'Write unit tests');
     await user.click(screen.getByRole('button', { name: /create task/i }));
 
-   await waitFor(() => {
-  expect(onSubmit).toHaveBeenCalled();
-});
+    await waitFor(() => {
+      expect(onSubmit).toHaveBeenCalled();
+    });
 
-const submittedData = onSubmit.mock.calls[0][0];
-expect(submittedData).toMatchObject({
-  title: 'Write unit tests',
-  priority: 'MEDIUM',
-  status: 'PENDING',
-});
+    const submittedData = onSubmit.mock.calls[0][0];
+    expect(submittedData).toMatchObject({
+      title: 'Write unit tests',
+      priority: 'MEDIUM',
+      status: 'PENDING',
+    });
   });
 
   it('pre-fills fields when defaultValues are provided (edit mode)', () => {
