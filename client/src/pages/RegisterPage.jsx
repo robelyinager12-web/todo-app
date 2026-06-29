@@ -29,7 +29,7 @@ export default function RegisterPage() {
 
   return (
     <AuthLayout title="Create your account" subtitle="Start organizing your tasks today">
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
         <Input
           label="Full Name"
           placeholder="Jane Doe"

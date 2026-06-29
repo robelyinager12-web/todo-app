@@ -28,7 +28,7 @@ export default function LoginPage() {
 
   return (
     <AuthLayout title="Welcome back" subtitle="Log in to manage your tasks">
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
         <Input
           label="Email"
           type="email"
